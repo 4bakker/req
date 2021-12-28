@@ -1003,7 +1003,7 @@ defmodule Req do
 
   """
   @doc api: :error
-  def retry({request, %{status: status} = response}, _options) when status < 500 do
+  def retry({request, %{status: status} = response}, _options) when status < 500 and status != 429 do
     {request, response}
   end
 
